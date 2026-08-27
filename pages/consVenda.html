@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Consultation - Earnings Dashboard</title>
+    <link rel="stylesheet" href="/Cadastro-e-Consulta-Gitflow/styles/consVenda.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Sales Consultation</h1>
+            <p>Monitor your earnings and sales performance in real-time</p>
+        </header>
+
+        <div id="alert" class="alert"></div>
+
+        <div class="dashboard">
+            <div class="card">
+                <h3>Total Earnings</h3>
+                <div class="value" id="totalEarnings">$0.00</div>
+            </div>
+            <div class="card">
+                <h3>Total Items Sold</h3>
+                <div class="value" id="totalItemsSold">0</div>
+            </div>
+            <div class="card">
+                <h3>Total Transactions</h3>
+                <div class="value" id="totalTransactionCount">0</div>
+            </div>
+            <div class="card">
+                <h3>Average Transaction</h3>
+                <div class="value" id="averageTransaction">$0.00</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <input type="date" id="filterStartDate" placeholder="Start Date">
+            <input type="date" id="filterEndDate" placeholder="End Date">
+            <select id="filterCategory">
+                <option value="">All Categories</option>
+            </select>
+            <button class="btn btn-primary" onclick="consultManager.applyFilters()">Filter</button>
+            <button class="btn btn-secondary" onclick="consultManager.resetFilters()">Reset</button>
+            <button class="btn btn-secondary" onclick="consultManager.exportToCSV()">📥 Export CSV</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td colspan="6" class="empty-state">No sales data available</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="chart-container">
+            <h3>Earnings by Category</h3>
+            <div class="category-summary" id="categorySummary"></div>
+        </div>
+    </div>
+
+    <script src="/Cadastro-e-Consulta-Gitflow/scripts/consVenda.js"></script>
+</body>
+
+</html>
